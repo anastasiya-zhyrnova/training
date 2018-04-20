@@ -1,0 +1,6 @@
+Create Console project. 
+It should ask you to enter an integer value from 0 to 100 inclusive.
+In case you enter invalid value it should specifically warn you.
+In case you enter valid value it should congratulate you and display the value.
+In case you enter 11, 22, 67  it should send you an additional message.
+In case value is even – it should additionally inform you.
