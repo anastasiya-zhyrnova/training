@@ -10,11 +10,11 @@ namespace MoyoFramework.Steps
     [Binding]
     public class NavigationSteps 
     {
-        [Given(@"I am on the '(.*)' page")]
-        public void GivenIAmOnThePage(string pageName)
-        {
-            var current = ScenarioContext.Current["NavigationContext"];
-        }
+        //[Given(@"I am on the '(.*)' page")]
+        //public void GivenIAmOnThePage(string pageName)
+        //{
+        //    var current = ScenarioContext.Current["NavigationContext"];
+        //}
 
     }
 }

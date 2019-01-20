@@ -6,8 +6,8 @@
 
 Scenario: 01 Search the product
 	Given I am on the 'Main' page
-	When I perform search of the 'IPhone 7' product
-	Then only items related to the product are present in search results 
+	When I perform search of the 'IPhone' product
+	Then only items related to the 'IPhone' product are present in search results 
 
 Scenario: 02 Add item to the cart
 	Given I am on the 'Main' page

@@ -19,6 +19,8 @@ namespace MoyoFramework
         private IWebDriver _driver;
         private const string Url = "https://www.moyo.ua";
 
+        private string SEARCH_ITEM = "iphone";
+
         [OneTimeSetUp]
         public void Setup()
         {
@@ -38,7 +40,11 @@ namespace MoyoFramework
             //Assert.IsTrue(resultList.All(i=>i.Contains("IPhone")));
             var HomePageActions = new HomePageActions();
             HomePageActions.GetPage();
-            HomePageActions.PerformSearch("IPhone 7");
+            HomePageActions.PerformSearch(SEARCH_ITEM);
+            var SearchResultsPageActions = new SearchResultsPageActions();
+            var itemsList = SearchResultsPageActions.GetSearchItems();
+            Assert.IsTrue(itemsList.All(i => i.ToLower().Contains(SEARCH_ITEM)));
+            
 
 
 

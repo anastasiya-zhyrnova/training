@@ -13,10 +13,17 @@ namespace MoyoFramework.Steps
     [Binding]
     public class HomePageSteps
     {
-        [Given(@"I am on the 'Main' page")]
+        //[Given(@"I am on the 'Main' page")]
+        //public void GivenIAmOnThePage(string pageName)
+        //{
+        //    HomePageActions page=new HomePageActions();
+        //    page.GetPage();
+        //}
+
+        [Given(@"I am on the '(.*)' page")]
         public void GivenIAmOnThePage(string pageName)
         {
-            HomePageActions page=new HomePageActions();
+            HomePageActions page = new HomePageActions();
             page.GetPage();
         }
 

@@ -20,9 +20,15 @@ namespace MoyoFramework.PageActions
             _driver = SeleniumDriver.Driver;
         }
 
-        public List<IWebElement> GetSearchItems()
+        public List<string> GetSearchItems()
         {
-            return searchResultsPage.searchResultsItems;
+            List<string> itemsDescrs = new List<string>();
+            foreach (var item in searchResultsPage.searchResultsItems)
+            {
+                itemsDescrs.Add(item.GetAttribute("text"));
+                
+            }
+            return itemsDescrs;
         }
     }
 }
