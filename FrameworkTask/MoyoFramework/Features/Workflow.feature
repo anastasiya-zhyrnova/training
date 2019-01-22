@@ -11,7 +11,8 @@ Scenario: 01 Search the product
 
 Scenario: 02 Add item to the cart
 	Given I am on the 'Main' page
-	And I perform search of the 'IPhone 7' product
+	And I perform search of the 'IPhone' product 
+	And I focus my search in 'Мобильные телефоны' category
 	When I add product to the cart
 	Then only added item is present in the cart
 

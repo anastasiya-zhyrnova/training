@@ -73,9 +73,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Workflow.feature</DependentUpon>
     </Compile>
+    <Compile Include="PageActions\BasePageActions.cs" />
     <Compile Include="PageActions\HomePageActions.cs" />
+    <Compile Include="PageActions\ProductPageActions.cs" />
     <Compile Include="PageActions\SearchResultsPageActions.cs" />
     <Compile Include="Pages\BasePage.cs" />
+    <Compile Include="Pages\ProductPage.cs" />
     <Compile Include="Pages\SearchResultsPage.cs" />
     <Compile Include="Steps\NavigationSteps.cs" />
     <Compile Include="Steps\SearchResultsSteps.cs" />

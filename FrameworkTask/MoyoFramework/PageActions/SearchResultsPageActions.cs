@@ -30,5 +30,28 @@ namespace MoyoFramework.PageActions
             }
             return itemsDescrs;
         }
+
+        public IWebElement GetCategory(string categoryName)
+        {
+            //IWebElement searchedCategoryItem = null;
+            foreach (var item in searchResultsPage.searchResultsItems)
+            {
+                if (item.GetAttribute("text").Contains(categoryName))
+                {
+                    return item;
+                }
+                //return searchedCategoryItem;
+            }
+
+            return null;
+        }
+
+        public IWebElement GetFirstSearchResult()
+        {
+            var items = searchResultsPage.searchResultsItems;
+            var res = (from i in items select i).First();
+            return res;
+        }
+
     }
 }

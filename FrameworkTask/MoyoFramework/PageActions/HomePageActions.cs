@@ -9,14 +9,14 @@ using OpenQA.Selenium;
 
 namespace MoyoFramework.PageActions
 {
-    class HomePageActions
+    class HomePageActions 
     {
         private HomePage homepage;
         private IWebDriver _driver;
 
         public HomePageActions()
         {
-           homepage = new HomePage();
+            homepage = new HomePage();
             _driver = SeleniumDriver.Driver;
         }
 
