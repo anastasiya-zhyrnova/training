@@ -3,3 +3,6 @@
 ################################################################################
 
 /FrameworkTask/MoyoFramework/obj/Debug
+/FrameworkTask/MoyoFramework/bin/Debug
+/FrameworkTask/packages
+/FrameworkTask/.vs

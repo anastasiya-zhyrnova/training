@@ -30,6 +30,14 @@ namespace MoyoFramework.Steps
             page.PerformSearch(searchCriteria);
         }
 
+        [Given(@"I select '(.*)' category")]
+        public void GivenISelectCategory(string categoryName)
+        {
+            HomePageActions page = new HomePageActions();
+            page.SelectCategory(categoryName);
+        }
+
+
 
     }
 }

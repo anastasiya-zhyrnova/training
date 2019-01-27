@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using MoyoFramework.Core;
 using MoyoFramework.Pages;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Remote;
+using OpenQA.Selenium.Support.UI;
 
 namespace MoyoFramework.PageActions
 {
@@ -34,7 +36,7 @@ namespace MoyoFramework.PageActions
         public IWebElement GetCategory(string categoryName)
         {
             //IWebElement searchedCategoryItem = null;
-            foreach (var item in searchResultsPage.searchResultsItems)
+            foreach (var item in searchResultsPage.categories)
             {
                 if (item.GetAttribute("text").Contains(categoryName))
                 {
@@ -51,6 +53,46 @@ namespace MoyoFramework.PageActions
             var items = searchResultsPage.searchResultsItems;
             var res = (from i in items select i).First();
             return res;
+        }
+
+        public void BuyItem()
+        {
+            searchResultsPage.buyButton.Click();
+        }
+
+        public string GetItemId()
+        {
+            string raw = (((RemoteWebElement)(searchResultsPage.itemId)).Text);
+            string delim = ": ";
+            string id = raw.Substring(raw.IndexOf(delim) + delim.Length);
+            return id;
+        }
+
+        public void ClosePopup()
+        {
+            searchResultsPage.closePopup.Click();
+        }
+
+        public void ProceedToTheCart()
+        {
+            searchResultsPage.proceedButton.Click();
+        }
+
+        public string GetItemInCart()
+        {
+            return searchResultsPage.itemInCart.GetAttribute("text").ToString();
+        }
+
+        public void WaitForElement(string locator)
+        {
+            WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(5));
+            wait.Until(ExpectedConditions.PresenceOfAllElementsLocatedBy(By.XPath(locator)));
+        }
+
+        public void SwitchToTheLastTab()
+        {
+            var newTabHandle = _driver.WindowHandles.Last();
+            var newTab = _driver.SwitchTo().Window(newTabHandle);
         }
 
     }

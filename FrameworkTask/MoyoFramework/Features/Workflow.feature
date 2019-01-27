@@ -12,16 +12,26 @@ Scenario: 01 Search the product
 Scenario: 02 Add item to the cart
 	Given I am on the 'Main' page
 	And I perform search of the 'IPhone' product 
-	And I focus my search in 'Мобильные телефоны' category
+	#And I select 'Мобильные телефоны' category
+	And I focus my search in 'Мобильные телефоны' category	
 	When I add product to the cart
-	Then only added item is present in the cart
+	Then product is added to the cart
 
-Scenario: 03 Proceed to the order 
+Scenario: 03 Delete item from the cart
 	Given I am on the 'Main' page
-	And I perform search of the product
+	And I perform search of the 'IPhone' product
+	And I focus my search in 'Мобильные телефоны' category
 	And I add product to the cart
-	When I proceed to the order
-	Then I am redirected to the Delivery and Payment page
-	And my product is still present in the cart
+	When I delete product from the cart
+	Then product is no longer present in my cart
+
+#Scenario: 04 Proceed to the order 
+#	Given I am on the 'Main' page
+#	And I perform search of the 'IPhone' product
+#	And I focus my search in 'Мобильные телефоны' category	
+#	And I add product to the cart
+#	When I proceed to the order
+#	Then I first step of order placement process is completed successfully
+#	
 
 	

@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using MoyoFramework.Core;
 using MoyoFramework.Pages;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
+using OpenQA.Selenium.Support.UI;
 
 namespace MoyoFramework.PageActions
 {
@@ -30,6 +32,14 @@ namespace MoyoFramework.PageActions
             homepage.searchField.Click();
             homepage.searchField.SendKeys(searchCriteria);
             homepage.submitButton.Click();
+        }
+
+        public void SelectCategory(string categoryName)
+        {
+            Actions actions = new Actions(_driver);
+            actions.MoveToElement(homepage.productCatalog).Click();
+            actions.MoveToElement(homepage.phonesMenuItem).Click();
+            
         }
     }
 }
