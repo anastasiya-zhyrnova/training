@@ -25,34 +25,24 @@ namespace MoyoFramework.PageActions
         public List<string> GetSearchItems()
         {
             List<string> itemsDescrs = new List<string>();
+                       
             foreach (var item in searchResultsPage.searchResultsItems)
             {
-                itemsDescrs.Add(item.GetAttribute("text"));
-                
+                itemsDescrs.Add(item.GetAttribute("text"));                
             }
             return itemsDescrs;
         }
 
         public IWebElement GetCategory(string categoryName)
         {
-            //IWebElement searchedCategoryItem = null;
-            foreach (var item in searchResultsPage.categories)
-            {
-                if (item.GetAttribute("text").Contains(categoryName))
-                {
-                    return item;
-                }
-                //return searchedCategoryItem;
-            }
-
-            return null;
+            return searchResultsPage.categories.
+                Where(t=>t.GetAttribute("text").Contains(categoryName)).
+                Select(t => t).First();          
         }
 
         public IWebElement GetFirstSearchResult()
         {
-            var items = searchResultsPage.searchResultsItems;
-            var res = (from i in items select i).First();
-            return res;
+            return searchResultsPage.searchResultsItems[0];
         }
 
         public void BuyItem()

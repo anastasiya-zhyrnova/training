@@ -24,12 +24,7 @@ namespace MoyoFramework.PageActions
 
         public int GetNumberOfProductsInCart()
         {
-            int num = 0;
-            foreach (var item in cart.products)
-            {
-                num++;
-            }
-            return num;
+            return cart.products.Count;            
         }
 
         public int GetItemId()
@@ -88,9 +83,5 @@ namespace MoyoFramework.PageActions
             cart.proceedButton.Click();
         }
 
-        //public void GetItemQuantity(IWebElement element)
-        //{
-        //    cart.cartItemsNum
-        //}
     }
 }
